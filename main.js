@@ -24,85 +24,101 @@ let currentPageLocations = 1;
 let totalPagesLocations = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
-    const startScreen = document.getElementById('start-screen');
-    const introScreen = document.getElementById('intro-screen');
-  
-    document.getElementById('enter-button')?.addEventListener('click', () => {
-      startScreen.classList.add('fade-out');
-  
-      setTimeout(() => {
-        startScreen.style.display = 'none';
-        introScreen.style.display = 'block';
-      }, 1000); 
-    });
+  const startScreen = document.getElementById('start-screen');
+  const introScreen = document.getElementById('intro-screen');
+
+  document.getElementById('enter-button')?.addEventListener('click', () => {
+    startScreen.classList.add('fade-out');
+
+    setTimeout(() => {
+      startScreen.style.display = 'none';
+      introScreen.style.display = 'block';
+    }, 1000);
   });
 
+  document.getElementById('btn-characters')?.addEventListener('click', () => showSection('characters'));
+  document.getElementById('btn-episodes')?.addEventListener('click', () => showSection('episodes'));
+  document.getElementById('btn-locations')?.addEventListener('click', () => showSection('locations'));
+});
+
 function showSection(section) {
-    charactersSection.style.display = 'none';
-    episodesSection.style.display = 'none';
-    locationsSection.style.display = 'none';
-  
-    if (section === 'characters') {
-      charactersSection.style.display = 'block';
-      fetchCharacters(currentPageCharacters);
-    } else if (section === 'episodes') {
-      episodesSection.style.display = 'block';
-      fetchEpisodes(currentPageEpisodes);
-    } else if (section === 'locations') {
-      locationsSection.style.display = 'block';
-      fetchLocations(currentPageLocations);
-    }
+  charactersSection.style.display = 'none';
+  episodesSection.style.display = 'none';
+  locationsSection.style.display = 'none';
+
+  if (section === 'characters') {
+    charactersSection.style.display = 'block';
+    fetchCharacters(currentPageCharacters);
+  } else if (section === 'episodes') {
+    episodesSection.style.display = 'block';
+    fetchEpisodes(currentPageEpisodes);
+  } else if (section === 'locations') {
+    locationsSection.style.display = 'block';
+    fetchLocations(currentPageLocations);
   }
-  
-  async function fetchCharacters(page = 1) {
-    charactersContainer.innerHTML = 'Cargando personajes...';
-    try {
-      const res = await fetch(`${API_BASE}/character?page=${page}`);
-      const data = await res.json();
-      totalPagesCharacters = data.info.pages;
-      currentPageCharacters = page;
-      displayCharacters(data.results);
-      createPagination(totalPagesCharacters, currentPageCharacters, charactersPagination, fetchCharacters);
-    } catch (e) {
-      charactersContainer.innerHTML = 'Error al cargar personajes';
-      console.error(e);
-    }
+}
+
+async function fetchCharacters(page = 1) {
+  charactersContainer.innerHTML = 'Cargando personajes...';
+  try {
+    const res = await fetch(`${API_BASE}/character?page=${page}`);
+    const data = await res.json();
+    totalPagesCharacters = data.info.pages;
+    currentPageCharacters = page;
+    displayCharacters(data.results);
+    createPagination(totalPagesCharacters, currentPageCharacters, charactersPagination, fetchCharacters);
+  } catch (e) {
+    charactersContainer.innerHTML = 'Error al cargar personajes';
+    console.error(e);
   }
-  
-  function displayCharacters(characters) {
-    charactersContainer.innerHTML = '';
-    characters.forEach(char => {
-      const card = document.createElement('div');
-      card.classList.add('card');
-      card.innerHTML = `
-        <img src="${char.image}" alt="${char.name}" />
-        <div class="card-content">
-          <h3>${char.name}</h3>
-          <p>Estado: ${char.status}</p>
-          <p>Especie: ${char.species}</p>
-        </div>
-      `;
-      card.addEventListener('click', () => openCharacterModal(char));
-      charactersContainer.appendChild(card);
-    });
-  }
-  
-  function openCharacterModal(char) {
-    if (!modal || !modalContent) return;
-    const content = `
-      <h2>${char.name}</h2>
-      <img src="${char.image}" alt="${char.name}" style="width: 100%; max-width: 300px;" />
-      <p><strong>Estado:</strong> ${char.status}</p>
-      <p><strong>Especie:</strong> ${char.species}</p>
-      <p><strong>Tipo:</strong> ${char.type || 'Desconocido'}</p>
-      <p><strong>Género:</strong> ${char.gender}</p>
-      <p><strong>Origen:</strong> ${char.origin.name}</p>
-      <p><strong>Ubicación actual:</strong> ${char.location.name}</p>
-      <p><strong>Episodios:</strong> ${char.episode.length}</p>
-      <button id="close-modal-btn">Cerrar</button>
+}
+
+function displayCharacters(characters) {
+  charactersContainer.innerHTML = '';
+  characters.forEach(char => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+      <img src="${char.image}" alt="${char.name}" />
+      <div class="card-content">
+        <h3>${char.name}</h3>
+        <p>Estado: ${char.status}</p>
+        <p>Especie: ${char.species}</p>
+      </div>
     `;
-    openModal(content);
-  }
+    card.addEventListener('click', () => openCharacterModal(char));
+    charactersContainer.appendChild(card);
+  });
+}
+
+function openCharacterModal(char) {
+  if (!modal || !modalContent) return;
+  const content = `
+    <h2>${char.name}</h2>
+    <img src="${char.image}" alt="${char.name}" style="width: 100%; max-width: 300px;" />
+    <p><strong>Estado:</strong> ${char.status}</p>
+    <p><strong>Especie:</strong> ${char.species}</p>
+    <p><strong>Tipo:</strong> ${char.type || 'Desconocido'}</p>
+    <p><strong>Género:</strong> ${char.gender}</p>
+    <p><strong>Origen:</strong> ${char.origin.name}</p>
+    <p><strong>Ubicación actual:</strong> ${char.location.name}</p>
+    <p><strong>Episodios:</strong> ${char.episode.length}</p>
+    <button id="close-modal-btn">Cerrar</button>
+  `;
+  openModal(content);
+}
+
+function openModal(content) {
+  if (!modal || !modalContent) return;
+
+  modalContent.innerHTML = content;
+  modal.style.display = 'block';
+
+  const closeButton = document.getElementById('close-modal-btn');
+  closeButton?.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+}
   
   async function fetchEpisodes(page = 1) {
     episodesContainer.innerHTML = 'Cargando episodios...';
@@ -221,4 +237,83 @@ function showSection(section) {
   }
 
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const startScreen = document.getElementById('start-screen');
+    const mainContent = document.getElementById('main-content');
+  
+    document.getElementById('enter-button')?.addEventListener('click', () => {
+      startScreen.classList.add('fade-out'); // Agregar clase para animación
+  
+      setTimeout(() => {
+        startScreen.style.display = 'none'; // Ocultar pantalla inicial
+        mainContent.style.display = 'block'; // Mostrar contenido principal
+        showSection('characters'); // Mostrar sección inicial
+      }, 1000); // Esperar duración de la animación
+    });
+  
+    // Manejadores de eventos para los botones de navegación
+    document.getElementById('btn-characters')?.addEventListener('click', () => showSection('characters'));
+    document.getElementById('btn-episodes')?.addEventListener('click', () => showSection('episodes'));
+    document.getElementById('btn-locations')?.addEventListener('click', () => showSection('locations'));
+  });
+  
+  function showSection(section) {
+    // Ocultar todas las secciones
+    charactersSection.style.display = 'none';
+    episodesSection.style.display = 'none';
+    locationsSection.style.display = 'none';
+  
+    // Mostrar la sección correspondiente y cargar datos
+    if (section === 'characters') {
+      charactersSection.style.display = 'block';
+      fetchCharacters(currentPageCharacters);
+    } else if (section === 'episodes') {
+      episodesSection.style.display = 'block';
+      fetchEpisodes(currentPageEpisodes);
+    } else if (section === 'locations') {
+      locationsSection.style.display = 'block';
+      fetchLocations(currentPageLocations);
+    }
+  }
+  function openCharacterModal(char) {
+    if (!modal || !modalContent) return;
+    const content = `
+      <h2>${char.name}</h2>
+      <img src="${char.image}" alt="${char.name}" style="width: 100%; max-width: 300px;" />
+      <p><strong>Estado:</strong> ${char.status}</p>
+      <p><strong>Especie:</strong> ${char.species}</p>
+      <p><strong>Tipo:</strong> ${char.type || 'Desconocido'}</p>
+      <p><strong>Género:</strong> ${char.gender}</p>
+      <p><strong>Origen:</strong> ${char.origin.name}</p>
+      <p><strong>Ubicación actual:</strong> ${char.location.name}</p>
+      <p><strong>Episodios:</strong> ${char.episode.length}</p>
+      <button id="close-modal-btn">Cerrar</button>
+    `;
+    openModal(content);
+  }
 
+  function openEpisodeModal(ep) {
+    if (!modal || !modalContent) return;
+    const content = `
+      <h2>${ep.name}</h2>
+      <p><strong>Código:</strong> ${ep.episode}</p>
+      <p><strong>Fecha:</strong> ${ep.air_date}</p>
+      <p><strong>Personajes:</strong> ${ep.characters.length}</p>
+      <button id="close-modal-btn">Cerrar</button>
+    `;
+    openModal(content);
+  }
+
+  function openLocationModal(loc) {
+    if (!modal || !modalContent) return;
+    const content = `
+      <h2>${loc.name}</h2>
+      <p><strong>Tipo:</strong> ${loc.type}</p>
+      <p><strong>Dimensión:</strong> ${loc.dimension}</p>
+      <p><strong>Residentes:</strong> ${loc.residents.length}</p>
+      <button id="close-modal-btn">Cerrar</button>
+    `;
+    openModal(content);
+  }
+
+  
