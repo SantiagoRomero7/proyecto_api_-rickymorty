@@ -36,3 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000); 
     });
   });
+
+function showSection(section) {
+    charactersSection.style.display = 'none';
+    episodesSection.style.display = 'none';
+    locationsSection.style.display = 'none';
+  
+    if (section === 'characters') {
+      charactersSection.style.display = 'block';
+      fetchCharacters(currentPageCharacters);
+    } else if (section === 'episodes') {
+      episodesSection.style.display = 'block';
+      fetchEpisodes(currentPageEpisodes);
+    } else if (section === 'locations') {
+      locationsSection.style.display = 'block';
+      fetchLocations(currentPageLocations);
+    }
+  }
+  
