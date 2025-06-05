@@ -8,11 +8,28 @@
 </head>
 <body>
   
+  <!-- Pantalla inicial -->
   <div id="start-screen" class="start-screen">
     <img src="./temporada-8.jpg" alt="Rick and Morty" />
     <button id="enter-button">Entrar</button>
   </div>
 
+  <!-- Pantalla introductoria -->
+  <div id="intro-screen" class="intro-screen" style="display: none;">
+    <header>
+      <h1>Bienvenido al universo de Rick and Morty</h1>
+      <p>Explora personajes, episodios y ubicaciones de esta increíble serie.</p>
+      <nav>
+        <ul>
+          <li><button id="btn-characters">Personajes</button></li>
+          <li><button id="btn-episodes">Episodios</button></li>
+          <li><button id="btn-locations">Ubicaciones</button></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <!-- Contenido principal -->
   <main id="main-content" style="display: none;">
     <header>
       <h1>Rick and Morty</h1>
@@ -41,7 +58,6 @@
     </section>
   </main>
 
-  
   <div id="modal" class="modal" style="display:none;">
     <div class="modal-content"></div>
   </div>

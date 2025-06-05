@@ -22,3 +22,4 @@ let currentPageEpisodes = 1;
 let totalPagesEpisodes = 1;
 let currentPageLocations = 1;
 let totalPagesLocations = 1;
+

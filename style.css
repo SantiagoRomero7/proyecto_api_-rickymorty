@@ -82,64 +82,6 @@ main {
   margin-bottom: 40px;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 25px;
-  animation: fadeIn 1.2s ease-in;
-}
-
-.card {
-  background: #141824;
-  border-radius: 18px;
-  box-shadow: 0 0 15px #00ffe7;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 0 30px #00ffe7, 0 0 15px #00ffe7 inset;
-}
-
-.card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-bottom: 2px solid #00ffe7;
-  filter: drop-shadow(0 0 10px #00ffe7);
-  transition: transform 0.4s ease;
-}
-
-.card:hover img {
-  transform: scale(1.08);
-}
-
-.card-content {
-  padding: 18px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-content h3 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-  text-shadow: 0 0 8px #00ffe7;
-}
-
-.card-content p {
-  font-size: 0.95rem;
-  color: #b3f7ef;
-}
-
-
 .pagination {
   margin-top: 40px;
   text-align: center;
@@ -325,3 +267,50 @@ main {
     }
   }
   
+  /* Contenedor de las tarjetas */
+#characters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Tarjetas */
+  .card {
+    background-color: #0f111a;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 231, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 231, 0.7);
+  }
+  
+  /* Imagen de la tarjeta */
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #00ffe7;
+  }
+  
+  /* Contenido de la tarjeta */
+  .card-content {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .card-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #00ffe7;
+  }
+  
+  .card-content p {
+    font-size: 0.9rem;
+    color: #b3f7ef;
+  }
