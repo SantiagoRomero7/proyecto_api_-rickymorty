@@ -23,3 +23,16 @@ let totalPagesEpisodes = 1;
 let currentPageLocations = 1;
 let totalPagesLocations = 1;
 
+document.addEventListener('DOMContentLoaded', () => {
+    const startScreen = document.getElementById('start-screen');
+    const introScreen = document.getElementById('intro-screen');
+  
+    document.getElementById('enter-button')?.addEventListener('click', () => {
+      startScreen.classList.add('fade-out');
+  
+      setTimeout(() => {
+        startScreen.style.display = 'none';
+        introScreen.style.display = 'block';
+      }, 1000); 
+    });
+  });

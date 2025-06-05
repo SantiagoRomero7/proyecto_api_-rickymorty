@@ -228,6 +228,21 @@ main {
   display: none;
 }
 
+
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .start-screen.fade-out {
+    animation: fadeOut 0.8s ease forwards;
+    pointer-events: none; 
+  }
+
 @media (max-width: 600px) {
     nav {
       flex-direction: column;
@@ -267,7 +282,7 @@ main {
     }
   }
   
-  /* Contenedor de las tarjetas */
+
 #characters-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -275,7 +290,7 @@ main {
     padding: 20px;
   }
   
-  /* Tarjetas */
+
   .card {
     background-color: #0f111a;
     border-radius: 10px;
@@ -289,7 +304,7 @@ main {
     box-shadow: 0 0 25px rgba(0, 255, 231, 0.7);
   }
   
-  /* Imagen de la tarjeta */
+  
   .card img {
     width: 100%;
     height: auto;
@@ -297,7 +312,7 @@ main {
     border-bottom: 2px solid #00ffe7;
   }
   
-  /* Contenido de la tarjeta */
+  
   .card-content {
     padding: 15px;
     text-align: center;
