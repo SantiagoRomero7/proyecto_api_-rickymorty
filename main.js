@@ -242,28 +242,25 @@ function openModal(content) {
     const mainContent = document.getElementById('main-content');
   
     document.getElementById('enter-button')?.addEventListener('click', () => {
-      startScreen.classList.add('fade-out'); // Agregar clase para animación
+      startScreen.classList.add('fade-out'); 
   
       setTimeout(() => {
-        startScreen.style.display = 'none'; // Ocultar pantalla inicial
-        mainContent.style.display = 'block'; // Mostrar contenido principal
-        showSection('characters'); // Mostrar sección inicial
-      }, 1000); // Esperar duración de la animación
+        startScreen.style.display = 'none'; 
+        mainContent.style.display = 'block'; 
+        showSection('characters'); 
+      }, 1000); 
     });
   
-    // Manejadores de eventos para los botones de navegación
     document.getElementById('btn-characters')?.addEventListener('click', () => showSection('characters'));
     document.getElementById('btn-episodes')?.addEventListener('click', () => showSection('episodes'));
     document.getElementById('btn-locations')?.addEventListener('click', () => showSection('locations'));
   });
   
   function showSection(section) {
-    // Ocultar todas las secciones
     charactersSection.style.display = 'none';
     episodesSection.style.display = 'none';
     locationsSection.style.display = 'none';
   
-    // Mostrar la sección correspondiente y cargar datos
     if (section === 'characters') {
       charactersSection.style.display = 'block';
       fetchCharacters(currentPageCharacters);
