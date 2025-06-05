@@ -54,3 +54,171 @@ function showSection(section) {
     }
   }
   
+  async function fetchCharacters(page = 1) {
+    charactersContainer.innerHTML = 'Cargando personajes...';
+    try {
+      const res = await fetch(`${API_BASE}/character?page=${page}`);
+      const data = await res.json();
+      totalPagesCharacters = data.info.pages;
+      currentPageCharacters = page;
+      displayCharacters(data.results);
+      createPagination(totalPagesCharacters, currentPageCharacters, charactersPagination, fetchCharacters);
+    } catch (e) {
+      charactersContainer.innerHTML = 'Error al cargar personajes';
+      console.error(e);
+    }
+  }
+  
+  function displayCharacters(characters) {
+    charactersContainer.innerHTML = '';
+    characters.forEach(char => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.innerHTML = `
+        <img src="${char.image}" alt="${char.name}" />
+        <div class="card-content">
+          <h3>${char.name}</h3>
+          <p>Estado: ${char.status}</p>
+          <p>Especie: ${char.species}</p>
+        </div>
+      `;
+      card.addEventListener('click', () => openCharacterModal(char));
+      charactersContainer.appendChild(card);
+    });
+  }
+  
+  function openCharacterModal(char) {
+    if (!modal || !modalContent) return;
+    const content = `
+      <h2>${char.name}</h2>
+      <img src="${char.image}" alt="${char.name}" style="width: 100%; max-width: 300px;" />
+      <p><strong>Estado:</strong> ${char.status}</p>
+      <p><strong>Especie:</strong> ${char.species}</p>
+      <p><strong>Tipo:</strong> ${char.type || 'Desconocido'}</p>
+      <p><strong>Género:</strong> ${char.gender}</p>
+      <p><strong>Origen:</strong> ${char.origin.name}</p>
+      <p><strong>Ubicación actual:</strong> ${char.location.name}</p>
+      <p><strong>Episodios:</strong> ${char.episode.length}</p>
+      <button id="close-modal-btn">Cerrar</button>
+    `;
+    openModal(content);
+  }
+  
+  async function fetchEpisodes(page = 1) {
+    episodesContainer.innerHTML = 'Cargando episodios...';
+    try {
+      const res = await fetch(`${API_BASE}/episode?page=${page}`);
+      const data = await res.json();
+      totalPagesEpisodes = data.info.pages;
+      currentPageEpisodes = page;
+      displayEpisodes(data.results);
+      createPagination(totalPagesEpisodes, currentPageEpisodes, episodesPagination, fetchEpisodes);
+    } catch (e) {
+      episodesContainer.innerHTML = 'Error al cargar episodios';
+      console.error(e);
+    }
+  }
+  
+  function displayEpisodes(episodes) {
+    episodesContainer.innerHTML = '';
+    episodes.forEach(ep => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.innerHTML = `
+        <div class="card-content">
+          <h3>${ep.name}</h3>
+          <p>Código: ${ep.episode}</p>
+          <p>Emitido: ${ep.air_date}</p>
+        </div>
+      `;
+      card.addEventListener('click', () => openEpisodeModal(ep));
+      episodesContainer.appendChild(card);
+    });
+  }
+  
+  function openEpisodeModal(ep) {
+    if (!modal || !modalContent) return;
+    const content = `
+      <h2>${ep.name}</h2>
+      <p><strong>Código:</strong> ${ep.episode}</p>
+      <p><strong>Fecha:</strong> ${ep.air_date}</p>
+      <p><strong>Personajes:</strong> ${ep.characters.length}</p>
+      <button id="close-modal-btn">Cerrar</button>
+    `;
+    openModal(content);
+  }
+  
+  async function fetchLocations(page = 1) {
+    locationsContainer.innerHTML = 'Cargando locaciones...';
+    try {
+      const res = await fetch(`${API_BASE}/location?page=${page}`);
+      const data = await res.json();
+      totalPagesLocations = data.info.pages;
+      currentPageLocations = page;
+      displayLocations(data.results);
+      createPagination(totalPagesLocations, currentPageLocations, locationsPagination, fetchLocations);
+    } catch (e) {
+      locationsContainer.innerHTML = 'Error al cargar locaciones';
+      console.error(e);
+    }
+  }
+  
+  function displayLocations(locations) {
+    locationsContainer.innerHTML = '';
+    locations.forEach(loc => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.innerHTML = `
+        <div class="card-content">
+          <h3>${loc.name}</h3>
+          <p>Tipo: ${loc.type}</p>
+          <p>Dimensión: ${loc.dimension}</p>
+        </div>
+      `;
+      card.addEventListener('click', () => openLocationModal(loc));
+      locationsContainer.appendChild(card);
+    });
+  }
+  
+  function openLocationModal(loc) {
+    if (!modal || !modalContent) return;
+    const content = `
+      <h2>${loc.name}</h2>
+      <p><strong>Tipo:</strong> ${loc.type}</p>
+      <p><strong>Dimensión:</strong> ${loc.dimension}</p>
+      <p><strong>Residentes:</strong> ${loc.residents.length}</p>
+      <button id="close-modal-btn">Cerrar</button>
+    `;
+    openModal(content);
+  }
+  
+  function createPagination(total, current, container, callback) {
+    container.innerHTML = '';
+    const maxButtons = 5;
+    let start = Math.max(1, current - Math.floor(maxButtons / 2));
+    let end = Math.min(total, start + maxButtons - 1);
+    if (end - start < maxButtons - 1) start = Math.max(1, end - maxButtons + 1);
+  
+    const prev = document.createElement('button');
+    prev.textContent = '‹';
+    prev.disabled = current === 1;
+    prev.onclick = () => callback(current - 1);
+    container.appendChild(prev);
+  
+    for (let i = start; i <= end; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === current) btn.classList.add('active');
+      btn.onclick = () => callback(i);
+      container.appendChild(btn);
+    }
+  
+    const next = document.createElement('button');
+    next.textContent = '›';
+    next.disabled = current === total;
+    next.onclick = () => callback(current + 1);
+    container.appendChild(next);
+  }
+
+
+
