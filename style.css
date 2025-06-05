@@ -79,14 +79,13 @@ nav button.active {
   color: #0f111a;
 }
 
-/* CONTENEDOR PRINCIPAL */
 main {
   width: 90%;
   max-width: 1200px;
   margin-bottom: 40px;
 }
 
-/* GRID DE TARJETAS */
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -94,7 +93,7 @@ main {
   animation: fadeIn 1.2s ease-in;
 }
 
-/* TARJETA */
+
 .card {
   background: #141824;
   border-radius: 18px;
@@ -145,7 +144,7 @@ main {
   color: #b3f7ef;
 }
 
-/* PAGINACIÓN */
+
 .pagination {
   margin-top: 40px;
   text-align: center;
@@ -171,7 +170,6 @@ main {
   box-shadow: 0 0 20px #00ffe7;
 }
 
-/* MODAL */
 .modal {
   position: fixed;
   inset: 0;
@@ -230,7 +228,7 @@ main {
   color: #0fffd8;
 }
 
-/* SCROLLBAR MODAL */
+
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -243,7 +241,7 @@ main {
   border-radius: 10px;
 }
 
-/* PANTALLA DE INICIO */
+
 .start-screen {
   position: fixed;
   inset: 0;
@@ -286,48 +284,49 @@ main {
   transform: scale(1.05);
 }
 
-/* SECCIONES */
+
 .content-section {
   display: none;
 }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 25px;
+    nav {
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+  
+    .card img {
+      height: 200px;
+    }
+  
+    .modal-content {
+      max-width: 95%;
+      padding: 20px 18px;
+    }
   }
-
-  .card img {
-    height: 200px;
+  
+  /* ANIMACIONES */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
-  .modal-content {
-    max-width: 95%;
-    padding: 20px 18px;
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-}
-
-/* ANIMACIONES */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  
