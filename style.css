@@ -28,12 +28,14 @@ h1 {
   animation: fadeInDown 1s ease-in-out;
 }
 
-nav {
+nav ul {
   display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 20px; 
+  list-style: none; 
+  padding: 0;
+  margin: 0;
 }
 
 nav button {
@@ -266,19 +268,7 @@ main {
   }
 }
 
-#close-modal-button {
-  background-color: rgba(0, 255, 0, 0.856);
-  color: #0f111a;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 20px;
-}
+
 
 #close-modal-button:hover {
   background-color: #70f877;
@@ -301,7 +291,7 @@ button {
 
 button:hover {
   background-color: #70f877;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 
