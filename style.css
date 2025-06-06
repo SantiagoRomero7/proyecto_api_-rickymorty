@@ -242,7 +242,7 @@ main {
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.15);
   box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
 }
 
@@ -280,4 +280,24 @@ main {
   .start-screen img {
     max-width: 70%;
   }
+}
+
+/* Estilos para el botón "Cerrar" dentro del modal */
+#close-modal-button {
+  background-color: rgba(0, 255, 0, 0.856);
+  color: #0f111a;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+}
+
+#close-modal-button:hover {
+  background-color: #70f877;
+  transform: scale(1.1);
 }

@@ -284,7 +284,6 @@ function openModal(content) {
       <p><strong>Origen:</strong> ${char.origin.name}</p>
       <p><strong>Ubicación actual:</strong> ${char.location.name}</p>
       <p><strong>Episodios:</strong> ${char.episode.length}</p>
-      <button id="close-modal-btn">Cerrar</button>
     `;
     openModal(content);
   }
@@ -296,7 +295,6 @@ function openModal(content) {
       <p><strong>Código:</strong> ${ep.episode}</p>
       <p><strong>Fecha:</strong> ${ep.air_date}</p>
       <p><strong>Personajes:</strong> ${ep.characters.length}</p>
-      <button id="close-modal-btn">Cerrar</button>
     `;
     openModal(content);
   }
@@ -308,9 +306,11 @@ function openModal(content) {
       <p><strong>Tipo:</strong> ${loc.type}</p>
       <p><strong>Dimensión:</strong> ${loc.dimension}</p>
       <p><strong>Residentes:</strong> ${loc.residents.length}</p>
-      <button id="close-modal-btn">Cerrar</button>
     `;
     openModal(content);
   }
 
-  
+  document.getElementById('close-modal-button').addEventListener('click', () => {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+  });
