@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap");
 
 * {
   margin: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background: linear-gradient(135deg, #0f111a, #000000);
   color: rgba(0, 255, 0, 0.856);
   min-height: 100vh;
@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   margin: 30px 0 15px;
   font-size: 3rem;
   letter-spacing: 2px;
@@ -32,8 +32,8 @@ nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; 
-  list-style: none; 
+  gap: 20px;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -44,7 +44,7 @@ nav button {
   color: rgba(0, 255, 0, 0.856);
   padding: 12px 24px;
   border-radius: 50px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 1.1rem;
   cursor: pointer;
   box-shadow: 0 0 12px rgba(0, 255, 0, 0.856);
@@ -54,7 +54,7 @@ nav button {
 }
 
 nav button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 255, 0, 0.856);
@@ -96,7 +96,7 @@ main {
   padding: 8px 16px;
   margin: 0 6px;
   border-radius: 50%;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   cursor: pointer;
   box-shadow: 0 0 8px rgba(0, 255, 0, 0.856);
   transition: all 0.3s ease;
@@ -139,7 +139,7 @@ main {
 }
 
 .modal-content h2 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
@@ -196,7 +196,7 @@ main {
   color: #000;
   border: none;
   width: 200px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
   border-radius: 15px;
   cursor: pointer;
@@ -245,7 +245,7 @@ main {
 }
 
 .card-content h3 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: rgba(0, 255, 0, 0.856);
@@ -255,7 +255,6 @@ main {
   font-size: 0.9rem;
   color: #70f877;
 }
-
 
 @media (max-width: 768px) {
   .start-screen img {
@@ -269,15 +268,13 @@ main {
   }
 }
 
-/* Estilos para el contenedor de episodios */
 #episodes-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Diseño responsivo */
-  gap: 20px; /* Espaciado entre las tarjetas */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
   padding: 20px;
 }
 
-/* Estilos para las tarjetas de episodios */
 .card {
   background-color: #0f111a;
   border-radius: 10px;
@@ -304,7 +301,7 @@ main {
 }
 
 .card-content h3 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: rgba(0, 255, 0, 0.856);
@@ -320,7 +317,6 @@ main {
   transform: scale(1.11);
 }
 
-
 button {
   background-color: rgba(0, 255, 0, 0.856);
   color: #0f111a;
@@ -328,7 +324,7 @@ button {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 1rem;
   margin: 10px;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -338,7 +334,6 @@ button:hover {
   background-color: #70f877;
   transform: scale(1.2);
 }
-
 
 #search-bar {
   display: flex;
@@ -356,7 +351,7 @@ button:hover {
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #0f111a;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
@@ -376,11 +371,12 @@ button:hover {
   border-radius: 5px;
   padding: 12px 20px;
   cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 1rem;
   margin-left: 10px;
   box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 #search-button:hover {
@@ -388,7 +384,6 @@ button:hover {
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
   transform: scale(1.1);
 }
-
 
 @media (max-width: 768px) {
   #search-bar {
@@ -470,7 +465,7 @@ button:hover {
 }
 
 header h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 3.5rem;
   color: rgba(0, 255, 0, 0.856);
   text-align: center;
@@ -480,7 +475,7 @@ header h1 {
 }
 
 header p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   color: #70f877;
   text-align: center;
@@ -510,4 +505,3 @@ header p {
     transform: translateY(0);
   }
 }
-
