@@ -316,4 +316,53 @@ function openModal(content) {
   });
 
 
+document.getElementById('search-button').addEventListener('click', () => {
+  const query = document.getElementById('search-input').value.trim().toLowerCase();
+  if (!query) return;
+
+ 
+  fetch(`${API_BASE}/character/?name=${query}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.results) {
+        charactersSection.style.display = 'block';
+        episodesSection.style.display = 'none';
+        locationsSection.style.display = 'none';
+        displayCharacters(data.results);
+      } else {
+        alert('No se encontraron personajes con ese nombre.');
+      }
+    })
+    .catch(err => console.error('Error al buscar personajes:', err));
+
+
+  fetch(`${API_BASE}/episode/?name=${query}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.results) {
+        charactersSection.style.display = 'none';
+        episodesSection.style.display = 'block';
+        locationsSection.style.display = 'none';
+        displayEpisodes(data.results);
+      } else {
+        console.log('No se encontraron episodios con ese nombre.');
+      }
+    })
+    .catch(err => console.error('Error al buscar episodios:', err));
+
+ 
+  fetch(`${API_BASE}/location/?name=${query}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.results) {
+        charactersSection.style.display = 'none';
+        episodesSection.style.display = 'none';
+        locationsSection.style.display = 'block';
+        displayLocations(data.results);
+      } else {
+        console.log('No se encontraron ubicaciones con ese nombre.');
+      }
+    })
+    .catch(err => console.error('Error al buscar ubicaciones:', err));
+});
   
