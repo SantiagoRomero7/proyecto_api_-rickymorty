@@ -149,22 +149,6 @@ main {
   line-height: 1.6;
 }
 
-.modal-close-btn {
-  position: absolute;
-  top: 12px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: rgba(0, 255, 0, 0.856);
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.modal-close-btn:hover {
-  color: #70f877;
-}
-
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -282,7 +266,6 @@ main {
   }
 }
 
-/* Estilos para el botón "Cerrar" dentro del modal */
 #close-modal-button {
   background-color: rgba(0, 255, 0, 0.856);
   color: #0f111a;
@@ -299,5 +282,27 @@ main {
 
 #close-modal-button:hover {
   background-color: #70f877;
-  transform: scale(1.1);
+  transform: scale(1.11);
 }
+
+
+button {
+  background-color: rgba(0, 255, 0, 0.856);
+  color: #0f111a;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  margin: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #70f877;
+  transform: scale(1.5);
+}
+
+
+
