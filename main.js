@@ -141,6 +141,7 @@ function openModal(content) {
       const card = document.createElement('div');
       card.classList.add('card');
       card.innerHTML = `
+        <img src="https://via.placeholder.com/300x150?text=${encodeURIComponent(ep.name)}" alt="${ep.name}" />
         <div class="card-content">
           <h3>${ep.name}</h3>
           <p>Código: ${ep.episode}</p>
