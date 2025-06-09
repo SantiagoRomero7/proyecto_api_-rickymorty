@@ -26,10 +26,10 @@ Este proyecto consiste en una aplicación web interactiva que consume la API pú
 ## Capturas de pantalla
 
 ### Pantalla de inicio
-![Pantalla de inicio](./assets/screenshots/pantalla-inicio.png)
+![Pantalla de inicio](![alt text](image.png))
 
 ### Vista de personajes
-![Vista de personajes](./assets/screenshots/vista-personajes.png)
+![Vista de personajes](![alt text](image-1.png))
 
 ## Instalación y ejecución
 
