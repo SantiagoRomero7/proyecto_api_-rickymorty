@@ -61,13 +61,13 @@ git clone https://github.com/SantiagoRomero7/rick-and-morty-app.git
 
 ## 📸 Maquetaciòn 
 
-![preview](./image.png)
+![preview](./img/image.png)
 
-![preview](./image-1.png)
+![preview](./img/image-1.png)
 
-![preview](./imagenn2.png)
+![preview](./img/imagenn2.png)
 
-![preview](./imagenn3.png)
+![preview](./img/imagenn3.png)
 
 Este fue el diseño borrador de la pagina web antes de comenzar a realizarla, el diseño fue creado con canva, se intento hacer lo màs posible parecido, pero se puede ver que hay algunas diferencias.
 
