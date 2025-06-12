@@ -7,7 +7,7 @@ Proyecto web interactivo que explora el universo de **Rick and Morty** utilizand
 ## 🔗 Demo en línea
 
 📲 Mira la app funcionando en GitHub Pages:  
-[https://tuusuario.github.io/rick-and-morty-app](https://tuusuario.github.io/rick-and-morty-app)
+(https://santiagoromero7.github.io/proyecto_api_-rickymorty/)
 
 ---
 
