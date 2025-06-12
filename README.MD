@@ -1,53 +1,105 @@
-# Proyecto Rick and Morty API
+# 🌌 Rick and Morty API Explorer
 
-**Nivel de dificultad:** ★★☆☆☆
+Proyecto web interactivo que explora el universo de **Rick and Morty** utilizando su API pública. Diseñado con una interfaz futurista, animaciones llamativas y navegación fluida para consultar personajes, episodios y locaciones.
 
-## Descripción
+---
 
-Este proyecto consiste en una aplicación web interactiva que consume la API pública de Rick and Morty para mostrar información sobre personajes, episodios y ubicaciones de la serie. La aplicación está diseñada para ser responsiva, atractiva y fácil de usar, aplicando conocimientos de JavaScript, manipulación del DOM y diseño moderno.
+## 🔗 Demo en línea
 
-## Funcionalidades
+📲 Mira la app funcionando en GitHub Pages:  
+[https://tuusuario.github.io/rick-and-morty-app](https://tuusuario.github.io/rick-and-morty-app)
 
-- **Explorar personajes:** Visualiza una lista de personajes con detalles como nombre, estado, especie y más.
-- **Explorar episodios:** Consulta episodios con información como nombre, código y fecha de emisión.
-- **Explorar ubicaciones:** Descubre ubicaciones con detalles como tipo, dimensión y residentes.
-- **Búsqueda:** Busca personajes, episodios o ubicaciones por nombre.
-- **Paginación:** Navega entre páginas de resultados para personajes, episodios y ubicaciones.
-- **Modal interactivo:** Visualiza detalles ampliados de personajes, episodios o ubicaciones en un modal.
+---
 
-## Tecnologías utilizadas
+## 🧰 Tecnologías utilizadas
 
-- **HTML5:** Estructura del contenido.
-- **CSS3:** Diseño responsivo y moderno.
-- **JavaScript:** Manipulación del DOM y consumo de la API.
-- **Rick and Morty API:** Fuente de datos.
-- **GitHub Pages:** Despliegue del proyecto.
+- HTML
+- CSS (estilo personalizado y responsive)
+- JavaScript (modular y asincrónico)
+- API pública: [Rick and Morty API](https://rickandmortyapi.com/)
 
-## Capturas de pantalla
+---
 
-### Pantalla de inicio
-![Pantalla de inicio](![alt text](image.png))
+## 📁 Estructura del Proyecto
 
-### Vista de personajes
-![Vista de personajes](![alt text](image-1.png))
+```
+📂 rick-and-morty-app/
+├── index.html           # Página principal
+├── styles.css           # Estilos futuristas
+├── main.js              # Lógica JS y consumo de API
+├── img/                 # Imágenes y recursos visuales
+└── README.md            # Documentación del proyecto
+```
 
-## Instalación y ejecución
+---
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/rick-and-morty-api.git
-   ```
-2. Abre el archivo `index.html` en tu navegador.
+## ⚙️ Funcionalidades
 
-## Despliegue
+✅ **Pantalla de bienvenida** con imagen destacada  
+✅ **Navegación por secciones**: personajes, episodios y ubicaciones  
+✅ **Tarjetas interactivas** con datos clave y detalles ampliables  
+✅ **Buscador de personajes** por nombre  
+✅ **Paginación dinámica** para evitar sobrecarga de contenido  
+✅ **Responsive Design**: diseño adaptable a dispositivos móviles  
+✅ **Código modular y limpio**, con separación por funciones
 
-El proyecto está disponible en GitHub Pages: [Enlace al proyecto](https://tu-usuario.github.io/rick-and-morty-api/)
+---
 
-## Créditos
+## 🧪 ¿Cómo probarlo localmente?
 
-- **API:** [Rick and Morty API](https://rickandmortyapi.com/)
-- **Inspiración de diseño:** [Dribbble](https://dribbble.com/)
+1. Clona el repositorio:
 
-## Licencia
+```bash
+git clone https://github.com/SantiagoRomero7/rick-and-morty-app.git
+```
 
-Este proyecto está bajo la licencia MIT.
+2. Abre el archivo `index.html` con tu navegador.
+
+3. O sube el proyecto a GitHub Pages para verlo en línea.
+
+---
+
+## 📸 Maquetaciòn 
+
+![preview](./image.png)
+
+![preview](./image-1.png)
+
+![preview](./imagenn2.png)
+
+![preview](./imagenn3.png)
+
+Este fue el diseño borrador de la pagina web antes de comenzar a realizarla, el diseño fue creado con canva, se intento hacer lo màs posible parecido, pero se puede ver que hay algunas diferencias.
+
+---
+
+## 👨‍💻 Autor
+
+**Tu Nombre Aquí**  
+Estudiante de Desarrollo Web en Campuslands  
+📧 santiagoinstagram23@gmail.com 
+
+💼 [GitHub](https://github.com/SantiagoRomero7)
+
+---
+
+## 📚 Aprendizajes
+
+- Consumo de APIs REST con `fetch` y `async/await`
+- Manipulación avanzada del DOM
+- Modularización de código JS
+- Diseño responsivo y UI personalizada
+- Paginación y manejo de eventos
+
+---
+
+## 🧠 Créditos
+
+- [Rick and Morty API](https://rickandmortyapi.com/)
+- Imágenes y datos oficiales pertenecen a sus respectivos creadores
+
+---
+
+## 📄 Licencia
+
+Este proyecto fue creado con fines educativos.  
