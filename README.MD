@@ -7,7 +7,7 @@ Proyecto web interactivo que explora el universo de **Rick and Morty** utilizand
 ## 🔗 Demo en línea
 
 📲 Mira la app funcionando en GitHub Pages:  
-(https://santiagoromero7.github.io/proyecto_api_-rickymorty/)
+https://santiagoromero7.github.io/proyecto_api_-rickymorty/
 
 ---
 
@@ -75,7 +75,6 @@ Este fue el diseño borrador de la pagina web antes de comenzar a realizarla, el
 
 ## 👨‍💻 Autor
 
-**Tu Nombre Aquí**  
 Estudiante de Desarrollo Web en Campuslands  
 📧 santiagoinstagram23@gmail.com 
 
