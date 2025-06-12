@@ -55,7 +55,7 @@ git clone https://github.com/SantiagoRomero7/rick-and-morty-app.git
 
 2. Abre el archivo `index.html` con tu navegador.
 
-3. O sube el proyecto a GitHub Pages para verlo en línea.
+3. GitHub Pages para verlo en línea.
 
 ---
 
@@ -103,3 +103,7 @@ Estudiante de Desarrollo Web en Campuslands
 ## 📄 Licencia
 
 Este proyecto fue creado con fines educativos.  
+
+## Desarrollador 
+
+Santiago Romero 
