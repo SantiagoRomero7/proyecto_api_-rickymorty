@@ -71,6 +71,59 @@ git clone https://github.com/SantiagoRomero7/rick-and-morty-app.git
 
 Este fue el diseño borrador de la pagina web antes de comenzar a realizarla, el diseño fue creado con canva, se intento hacer lo màs posible parecido, pero se puede ver que hay algunas diferencias.
 
+
+---
+
+## 🌐 Conexión con la API
+
+La aplicación se conecta a la API pública de **Rick and Morty** utilizando la función `fetch` de JavaScript para realizar solicitudes HTTP. A continuación, se detalla el proceso:
+
+1. **Definición de la URL base**:  
+   Se utiliza una constante para almacenar la URL base de la API:  
+   ```javascript
+   const API_BASE = "https://rickandmortyapi.com/api";
+   ```
+
+2. **Solicitudes a los endpoints**:  
+   Dependiendo de la funcionalidad, se realizan solicitudes a los endpoints `/character`, `/episode` o `/location`. Por ejemplo, para obtener personajes:  
+   ```javascript
+   const res = await fetch(`${API_BASE}/character?page=${page}`);
+   const data = await res.json();
+   ```
+
+3. **Procesamiento de datos**:  
+   Los datos obtenidos de la API se procesan y se muestran en la interfaz. Por ejemplo, los personajes se renderizan en tarjetas interactivas:  
+   ```javascript
+   function displayCharacters(characters) {
+     characters.forEach((char) => {
+       const card = document.createElement("div");
+       card.innerHTML = `<h3>${char.name}</h3>`;
+       charactersContainer.appendChild(card);
+     });
+   }
+   ```
+
+4. **Manejo de errores**:  
+   Se implementa un manejo de errores para mostrar mensajes en caso de fallos en la conexión:  
+   ```javascript
+   try {
+     const res = await fetch(`${API_BASE}/character?page=${page}`);
+     const data = await res.json();
+   } catch (e) {
+     console.error("Error al cargar personajes:", e);
+   }
+   ```
+
+5. **Búsqueda dinámica**:  
+   Se permite buscar personajes, episodios o ubicaciones por nombre utilizando parámetros de consulta:  
+   ```javascript
+   fetch(`${API_BASE}/character/?name=${query}`)
+     .then((res) => res.json())
+     .then((data) => displayCharacters(data.results));
+   ```
+
+Esta implementación permite una navegación fluida y una experiencia interactiva al explorar el universo de Rick and Morty.
+
 ---
 
 ## 👨‍💻 Autor
